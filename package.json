@@ -4,6 +4,7 @@
   "packageManager": "yarn@3.1.1",
   "scripts": {
     "build": "ng build",
+    "dev": "ng serve",
     "lint": "ng lint",
     "ng": "ng",
     "start": "ng serve",
@@ -18,7 +19,7 @@
     }
   },
   "dependencies": {
-    "@angular/animations": "~13.0.0",
+    "@angular/animations": "^13.0.2",
     "@angular/common": "~13.0.0",
     "@angular/compiler": "~13.0.0",
     "@angular/core": "~13.0.0",
@@ -26,6 +27,8 @@
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
+    "primeicons": "^5.0.0",
+    "primeng": "^13.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
