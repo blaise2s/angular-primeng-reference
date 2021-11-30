@@ -1,14 +1,14 @@
 {
   "name": "bricz-site",
   "version": "0.0.0",
+  "packageManager": "yarn@3.1.1",
   "scripts": {
+    "build": "ng build",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "watch": "ng build --watch --configuration development"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~13.0.0",
     "@angular/common": "~13.0.0",
