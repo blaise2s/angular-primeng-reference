@@ -1,0 +1,6 @@
+.angular
+.husky
+.vscode
+.yarn
+dist
+node_modules
