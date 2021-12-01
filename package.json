@@ -9,6 +9,9 @@
     "dev": "ng serve",
     "lint": "ng lint",
     "ng": "ng",
+    "postinstall": "husky install",
+    "postpublish": "pinst --enable",
+    "prepublishOnly": "pinst --disable",
     "start": "node dist/server.js",
     "test": "ng test",
     "watch": "ng build --watch --configuration development"
