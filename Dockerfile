@@ -1,4 +1,4 @@
-FROM node:16.13.0 as builder
+FROM node:17.2.0 as builder
 ENV NODE_ENV=production
 WORKDIR /usr/app
 COPY package.json yarn.lock .yarnrc.yml ./
@@ -8,7 +8,7 @@ RUN yarn install
 COPY . .
 RUN yarn build
 
-FROM node:16.13.0 as runner
+FROM node:17.2.0 as runner
 ENV NODE_ENV=production
 ENV PORT=80
 WORKDIR /usr/app
