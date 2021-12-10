@@ -31,7 +31,8 @@
             "prefix": "bz",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "no-console": "error"
       }
     },
     {
