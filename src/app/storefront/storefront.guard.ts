@@ -6,7 +6,7 @@ import { AuthService } from '../auth/services/auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class DashboardGuard implements CanActivate, CanLoad {
+export class StorefrontGuard implements CanActivate, CanLoad {
   constructor(private readonly authService: AuthService) {}
 
   canActivate():
@@ -16,7 +16,6 @@ export class DashboardGuard implements CanActivate, CanLoad {
     | UrlTree {
     return this.authService.verifyLoggedIn();
   }
-
   canLoad():
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>

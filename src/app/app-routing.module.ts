@@ -5,9 +5,13 @@ import { AllocationGuard } from './allocation/allocation.guard';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardGuard } from './dashboard/dashboard.guard';
+import { ECommerceComponent } from './e-commerce/e-commerce.component';
+import { ECommerceGuard } from './e-commerce/e-commerce.guard';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { StorefrontComponent } from './storefront/storefront.component';
+import { StorefrontGuard } from './storefront/storefront.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
@@ -34,6 +38,20 @@ const routes: Routes = [
     canActivate: [AllocationGuard],
     canLoad: [AllocationGuard],
     children: [{ path: '', pathMatch: 'full', component: AllocationComponent }],
+  },
+  {
+    path: 'e-commerce',
+    component: LayoutComponent,
+    canActivate: [ECommerceGuard],
+    canLoad: [ECommerceGuard],
+    children: [{ path: '', pathMatch: 'full', component: ECommerceComponent }],
+  },
+  {
+    path: 'storefront',
+    component: LayoutComponent,
+    canActivate: [StorefrontGuard],
+    canLoad: [StorefrontGuard],
+    children: [{ path: '', pathMatch: 'full', component: StorefrontComponent }],
   },
 ];
 

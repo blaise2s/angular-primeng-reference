@@ -24,17 +24,13 @@ export class MenuComponent {
     {
       label: 'E-commerce',
       command: () => {
-        // TODO
-        // eslint-disable-next-line no-console
-        console.log('TODO');
+        this.navigate('/e-commerce');
       },
     },
     {
       label: 'Storefront',
       command: () => {
-        // TODO
-        // eslint-disable-next-line no-console
-        console.log('TODO');
+        this.navigate('/storefront');
       },
     },
   ];
