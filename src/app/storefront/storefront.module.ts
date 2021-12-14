@@ -4,6 +4,7 @@ import { StorefrontComponent } from './storefront.component';
 
 @NgModule({
   declarations: [StorefrontComponent],
+  exports: [StorefrontComponent],
   imports: [CommonModule],
 })
 export class StorefrontModule {}

@@ -1,11 +1,14 @@
 import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { ECommerceGuard } from './e-commerce.guard';
 
 describe('ECommerceGuard', () => {
   let guard: ECommerceGuard;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
+    });
     guard = TestBed.inject(ECommerceGuard);
   });
 

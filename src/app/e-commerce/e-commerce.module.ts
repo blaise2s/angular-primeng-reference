@@ -4,6 +4,7 @@ import { ECommerceComponent } from './e-commerce.component';
 
 @NgModule({
   declarations: [ECommerceComponent],
+  exports: [ECommerceComponent],
   imports: [CommonModule],
 })
 export class ECommerceModule {}

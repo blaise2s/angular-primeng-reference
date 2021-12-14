@@ -1,0 +1,31 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.upload-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
+}
+
+.table-container {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.empty-table-message {
+  // padding: 2rem 0 2rem 0;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

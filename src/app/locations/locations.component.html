@@ -1,0 +1,6 @@
+<ng-container *ngIf="state | async as state">
+  <bz-loading *ngIf="state.loading; else content"></bz-loading>
+  <ng-template #content>
+    <p>locations works!</p>
+  </ng-template>
+</ng-container>

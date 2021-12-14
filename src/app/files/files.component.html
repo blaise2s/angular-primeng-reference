@@ -1,0 +1,88 @@
+<div class="content">
+  <ng-container *ngIf="state | async as state">
+    <p-confirmDialog
+      rejectButtonStyleClass="p-button-text"
+      acceptButtonStyleClass="p-button-danger"
+      [style]="{ width: '50%' }"
+    ></p-confirmDialog>
+    <div class="upload-container">
+      <bz-upload-button
+        [disabled]="state.loading"
+        (upload)="onUpload()"
+      ></bz-upload-button>
+    </div>
+    <div class="table-container">
+      <bz-loading *ngIf="state.loading; else tableTemplate"></bz-loading>
+      <ng-template #tableTemplate>
+        <p-table
+          #table
+          scrollHeight="flex"
+          responsiveLayout="scroll"
+          dataKey="id"
+          sortMode="multiple"
+          [value]="state.uploads"
+          [scrollable]="true"
+          [globalFilterFields]="['originalname']"
+          [(selection)]="state.selectedUploads"
+        >
+          <ng-template pTemplate="emptymessage">
+            <div class="empty-table-message">
+              <p>No uploads to display.</p>
+              <bz-upload-button
+                [disabled]="state.loading"
+                (upload)="onUpload()"
+              ></bz-upload-button>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="caption">
+            <div class="table-header">
+              <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input
+                  pInputText
+                  type="text"
+                  (input)="onFilter($event, table)"
+                  placeholder="Search keyword"
+                />
+              </span>
+              <div *ngIf="state.selectedUploads.length">
+                <button
+                  pButton
+                  pRipple
+                  type="button"
+                  class="p-button-danger"
+                  label="Delete"
+                  (click)="onDelete()"
+                ></button>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th pFrozenColumn style="width: 3rem">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+              </th>
+              <th pSortableColumn="originalname" style="min-width: 200px">
+                Name <p-sortIcon field="originalname"></p-sortIcon>
+              </th>
+              <th pSortableColumn="size" style="min-width: 200px">
+                Size <p-sortIcon field="size"></p-sortIcon>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-file>
+            <tr>
+              <td pFrozenColumn style="width: 3rem">
+                <p-tableCheckbox [value]="file"></p-tableCheckbox>
+              </td>
+              <td style="min-width: 200px">
+                {{ file.originalname }}
+              </td>
+              <td style="min-width: 200px">{{ file.size / 1000 }} KB</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </ng-template>
+    </div>
+  </ng-container>
+</div>

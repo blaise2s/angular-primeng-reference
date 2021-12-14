@@ -1,0 +1,50 @@
+:host ::ng-deep .loading {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host ::ng-deep .p-progress-spinner-circle {
+  animation: p-progress-spinner-dash 1.5s ease-in-out infinite,
+    custom-progress-spinner-color 6s ease-in-out infinite;
+  stroke: #42cdfa;
+}
+
+// Defaults from PrimeNG
+@keyframes p-progress-spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  to {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@keyframes custom-progress-spinner-color {
+  to,
+  0% {
+    stroke: #42cdfa;
+  }
+
+  40% {
+    stroke: #010d4b;
+  }
+
+  66% {
+    stroke: #42cdfa;
+  }
+
+  80%,
+  90% {
+    stroke: #010d4b;
+  }
+}

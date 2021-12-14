@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AllocationComponent } from './allocation/allocation.component';
-import { AllocationGuard } from './allocation/allocation.guard';
-import { AuthGuard } from './auth/guards/auth.guard';
-import { LoginGuard } from './auth/guards/login.guard';
+import { AreasComponent } from './areas/areas.component';
+import { AreasGuard } from './areas/areas.guard';
+import { AuthGuard } from './common/auth/guards/auth.guard';
+import { LoginSignupGuard } from './common/auth/guards/login-signup.guard';
+import { LayoutComponent } from './common/components/layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardGuard } from './dashboard/dashboard.guard';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { ECommerceGuard } from './e-commerce/e-commerce.guard';
-import { LayoutComponent } from './layout/layout.component';
+import { FilesComponent } from './files/files.component';
+import { FilesGuard } from './files/guards/files.guard';
+import { LocationsGuard } from './locations/guards/locations.guard';
+import { LocationsComponent } from './locations/locations.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { StorefrontComponent } from './storefront/storefront.component';
@@ -19,15 +23,15 @@ const routes: Routes = [
     path: 'login',
     pathMatch: 'full',
     component: LoginComponent,
-    canActivate: [LoginGuard],
-    canLoad: [LoginGuard],
+    canActivate: [LoginSignupGuard],
+    canLoad: [LoginSignupGuard],
   },
   {
     path: 'signup',
     pathMatch: 'full',
     component: SignupComponent,
-    canActivate: [LoginGuard],
-    canLoad: [LoginGuard],
+    canActivate: [LoginSignupGuard],
+    canLoad: [LoginSignupGuard],
   },
   {
     path: '',
@@ -43,13 +47,6 @@ const routes: Routes = [
         canLoad: [DashboardGuard],
       },
       {
-        path: 'allocation',
-        pathMatch: 'full',
-        component: AllocationComponent,
-        canActivate: [AllocationGuard],
-        canLoad: [AllocationGuard],
-      },
-      {
         path: 'e-commerce',
         pathMatch: 'full',
         component: ECommerceComponent,
@@ -63,48 +60,29 @@ const routes: Routes = [
         canActivate: [StorefrontGuard],
         canLoad: [StorefrontGuard],
       },
+      {
+        path: 'locations',
+        pathMatch: 'full',
+        component: LocationsComponent,
+        canActivate: [LocationsGuard],
+        canLoad: [LocationsGuard],
+      },
+      {
+        path: 'areas',
+        pathMatch: 'full',
+        component: AreasComponent,
+        canActivate: [AreasGuard],
+        canLoad: [AreasGuard],
+      },
+      {
+        path: 'files',
+        pathMatch: 'full',
+        component: FilesComponent,
+        canActivate: [FilesGuard],
+        canLoad: [FilesGuard],
+      },
     ],
   },
-
-  // { path: '', pathMatch: 'full', redirectTo: '/login' },
-  // {
-  //   path: 'login',
-  //   component: LoginComponent,
-  //   canActivate: [AuthGuard],
-  // },
-  // {
-  //   path: 'signup',
-  //   component: SignupComponent,
-  //   canActivate: [AuthGuard],
-  // },
-  // {
-  //   path: 'dashboard',
-  //   component: LayoutComponent,
-  //   canActivate: [DashboardGuard],
-  //   canLoad: [DashboardGuard],
-  //   children: [{ path: '', pathMatch: 'full', component: DashboardComponent }],
-  // },
-  // {
-  //   path: 'allocation',
-  //   component: LayoutComponent,
-  //   canActivate: [AllocationGuard],
-  //   canLoad: [AllocationGuard],
-  //   children: [{ path: '', pathMatch: 'full', component: AllocationComponent }],
-  // },
-  // {
-  //   path: 'e-commerce',
-  //   component: LayoutComponent,
-  //   canActivate: [ECommerceGuard],
-  //   canLoad: [ECommerceGuard],
-  //   children: [{ path: '', pathMatch: 'full', component: ECommerceComponent }],
-  // },
-  // {
-  //   path: 'storefront',
-  //   component: LayoutComponent,
-  //   canActivate: [StorefrontGuard],
-  //   canLoad: [StorefrontGuard],
-  //   children: [{ path: '', pathMatch: 'full', component: StorefrontComponent }],
-  // },
 ];
 
 @NgModule({
