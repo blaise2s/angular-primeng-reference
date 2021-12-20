@@ -45,7 +45,18 @@
                   placeholder="Search keyword"
                 />
               </span>
-              <div *ngIf="state.selectedUploads.length">
+              <div
+                *ngIf="state.selectedUploads.length"
+                class="table-header__actions"
+              >
+                <button
+                  pButton
+                  pRipple
+                  type="button"
+                  label="Rename"
+                  [disabled]="state.selectedUploads.length > 1"
+                  (click)="onRename()"
+                ></button>
                 <button
                   pButton
                   pRipple
@@ -78,7 +89,9 @@
               <td style="min-width: 200px">
                 {{ file.originalname }}
               </td>
-              <td style="min-width: 200px">{{ file.size / 1000 }} KB</td>
+              <td style="min-width: 200px">
+                {{ file.size / 1000000 | number }} MB
+              </td>
             </tr>
           </ng-template>
         </p-table>

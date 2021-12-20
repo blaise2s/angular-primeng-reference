@@ -1,0 +1,28 @@
+<div class="rename">
+  <div class="rename__current-name">
+    <span>Current Name: </span>{{ currentName }}
+  </div>
+  <div class="rename__new-name">
+    <span class="p-float-label">
+      <input id="new-name-input" type="text" pInputText [(ngModel)]="newName" />
+      <label for="new-name-input">New Name</label>
+    </span>
+  </div>
+  <div class="rename__actions">
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Cancel"
+      class="p-button-secondary"
+      (click)="onRename()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Rename"
+      (click)="onRename()"
+    ></button>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.rename {
+  &__current-name {
+    > span {
+      font-weight: bold;
+    }
+  }
+
+  &__new-name {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    > span > input {
+      width: 100%;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+
+    > button {
+      margin-left: 1rem;
+    }
+  }
+}

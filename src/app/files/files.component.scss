@@ -6,7 +6,6 @@
 
 .upload-container {
   display: flex;
-  justify-content: flex-end;
   padding-bottom: 1rem;
 }
 
@@ -28,4 +27,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &__actions {
+    > button {
+      margin-left: 1rem;
+    }
+  }
 }

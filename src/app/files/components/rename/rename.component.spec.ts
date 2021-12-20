@@ -1,21 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MessageService } from 'primeng/api';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
-import { UploadComponent } from './upload.component';
+import { RenameComponent } from './rename.component';
 
-describe('UploadComponent', () => {
-  let component: UploadComponent;
-  let fixture: ComponentFixture<UploadComponent>;
+describe('RenameComponent', () => {
+  let component: RenameComponent;
+  let fixture: ComponentFixture<RenameComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UploadComponent],
-      providers: [DynamicDialogConfig, MessageService],
+      declarations: [RenameComponent],
+      providers: [DynamicDialogConfig],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UploadComponent);
+    fixture = TestBed.createComponent(RenameComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

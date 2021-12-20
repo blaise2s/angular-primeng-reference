@@ -1,8 +1,9 @@
 <p-fileUpload
   #fileUploader
   name="files"
-  accept="text/csv"
+  accept="text/csv,text/tab-separated-values"
   url="http://localhost:3000/api/bricz-server/v1/uploads"
+  [maxFileSize]="1024 * 1024 * 500"
   [showCancelButton]="false"
   [multiple]="true"
   (onUpload)="onUpload()"
@@ -11,7 +12,9 @@
   <ng-template let-file let-files pTemplate="file">
     <div class="file-template">
       <div class="file-template__name">{{ file.name }}</div>
-      <div class="file-template__size">{{ file.size / 1000 }} KB</div>
+      <div class="file-template__size">
+        {{ file.size / 1000000 | number }} MB
+      </div>
       <button
         pRipple
         pButton

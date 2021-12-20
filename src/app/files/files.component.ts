@@ -3,6 +3,8 @@ import { ConfirmationService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 import { Table } from 'primeng/table';
 import { tap } from 'rxjs';
+import { AppService } from '../app.service';
+import { RenameComponent } from './components/rename/rename.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { FilesStateService } from './services/files-state.service';
 
@@ -18,11 +20,35 @@ export class FilesComponent implements OnInit {
   constructor(
     private readonly dialogService: DialogService,
     private readonly filesStateService: FilesStateService,
-    private readonly confirmationService: ConfirmationService
+    private readonly confirmationService: ConfirmationService,
+    private readonly appService: AppService
   ) {}
 
   ngOnInit(): void {
     this.filesStateService.initializeState();
+  }
+
+  onRename(): void {
+    const selectedUpload =
+      this.filesStateService.currentState().selectedUploads[0];
+    const dialogRef = this.dialogService.open(RenameComponent, {
+      header: 'Rename File',
+      width: '70%',
+      data: {
+        close: (newName: string) =>
+          dialogRef.close({ newName, id: selectedUpload.id }),
+        upload: selectedUpload,
+      },
+    });
+    dialogRef.onClose
+      .pipe(
+        tap(({ id, newName }: { id: number; newName: string }) => {
+          if (newName && newName.trim()) {
+            this.filesStateService.renameUpload(id, newName.trim());
+          }
+        })
+      )
+      .subscribe();
   }
 
   onUpload(): void {
@@ -33,7 +59,6 @@ export class FilesComponent implements OnInit {
       data: {
         close: (uploaded: boolean) => dialogRef.close({ uploaded }),
       },
-      dismissableMask: true,
     });
     dialogRef.onClose
       .pipe(
@@ -49,6 +74,7 @@ export class FilesComponent implements OnInit {
   }
 
   onFilter(event: Event, table: Table): void {
+    this.filesStateService.setState({ selectedUploads: [] });
     table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
   }
 
@@ -57,10 +83,17 @@ export class FilesComponent implements OnInit {
       message: 'Do you want to delete the selected files?',
       header: 'Delete Confirmation',
       icon: 'pi pi-info-circle',
-      accept: () =>
-        this.filesStateService.deleteUploads(
-          this.filesStateService.currentState().selectedUploads
-        ),
+      accept: () => {
+        if (this.appService.graphQLEnabled()) {
+          return this.filesStateService.deleteUploadsGql(
+            this.filesStateService.currentState().selectedUploads
+          );
+        } else {
+          return this.filesStateService.deleteUploadsRest(
+            this.filesStateService.currentState().selectedUploads
+          );
+        }
+      },
     });
   }
 }

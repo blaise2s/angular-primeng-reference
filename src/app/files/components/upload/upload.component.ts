@@ -21,7 +21,7 @@ export class UploadComponent {
   }
 
   onUpload(): void {
-    this.config.data.close({ uploaded: true });
+    this.config.data.close(true);
     this.toastService.success('Success', 'Files uploaded');
   }
 

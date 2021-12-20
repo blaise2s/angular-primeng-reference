@@ -1,8 +1,9 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 import { FilesComponent } from './files.component';
+import { FilesStateService } from './services/files-state.service';
 
 describe('FilesComponent', () => {
   let component: FilesComponent;
@@ -10,9 +11,14 @@ describe('FilesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [FilesComponent],
-      imports: [HttpClientModule],
-      providers: [DialogService, MessageService, ConfirmationService],
+      providers: [
+        DialogService,
+        MessageService,
+        ConfirmationService,
+        FilesStateService,
+      ],
     }).compileComponents();
   });
 
