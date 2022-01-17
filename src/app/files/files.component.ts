@@ -42,9 +42,12 @@ export class FilesComponent implements OnInit {
     });
     dialogRef.onClose
       .pipe(
-        tap(({ id, newName }: { id: number; newName: string }) => {
-          if (newName && newName.trim()) {
-            this.filesStateService.renameUpload(id, newName.trim());
+        tap((closeData: { id: number; newName: string }) => {
+          if (closeData && closeData.newName && closeData.newName.trim()) {
+            this.filesStateService.renameUpload(
+              closeData.id,
+              closeData.newName.trim()
+            );
           }
         })
       )
@@ -62,8 +65,8 @@ export class FilesComponent implements OnInit {
     });
     dialogRef.onClose
       .pipe(
-        tap(({ uploaded }: { uploaded?: boolean }) => {
-          if (uploaded) {
+        tap((closeData: { uploaded?: boolean }) => {
+          if (closeData && closeData.uploaded) {
             // Note: This may need to change later if other things happen when
             // initializing state, at that point breakout refreshing of files
             this.filesStateService.initializeState();

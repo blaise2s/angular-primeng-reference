@@ -8,12 +8,12 @@ import {
   switchMap,
   tap,
 } from 'rxjs';
-import { AppService } from 'src/app/app.service';
-import { ToastService } from 'src/app/common/services/toast.service';
+import { AppService } from '../../app.service';
+import { Upload } from '../../common/interfaces/upload.interfaces';
+import { ToastService } from '../../common/services/toast.service';
+import { UploadsService } from '../../common/services/uploads.service';
 import { defaultFilesState } from '../constants/files-state.constants';
 import { FilesState } from '../interfaces/files-state.interfaces';
-import { Upload } from '../interfaces/upload.interfaces';
-import { UploadsService } from './uploads.service';
 
 @Injectable({
   providedIn: 'root',

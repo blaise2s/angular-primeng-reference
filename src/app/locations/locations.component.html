@@ -1,6 +1,25 @@
 <ng-container *ngIf="state | async as state">
-  <bz-loading *ngIf="state.loading; else content"></bz-loading>
-  <ng-template #content>
-    <p>locations works!</p>
-  </ng-template>
+  <div class="container">
+    <div class="actions">
+      <button
+        pRipple
+        pButton
+        type="button"
+        label="Analyze"
+        [disabled]="state.loading"
+        (click)="onAnalyze()"
+      ></button>
+    </div>
+    <div class="content">
+      <bz-loading *ngIf="state.loading; else content"></bz-loading>
+      <ng-template #content>
+        <ng-container *ngIf="state.salesByState">
+          <bz-map
+            fillColorProp="total"
+            [salesByState]="state.salesByState"
+          ></bz-map>
+        </ng-container>
+      </ng-template>
+    </div>
+  </div>
 </ng-container>

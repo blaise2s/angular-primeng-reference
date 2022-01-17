@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1;
+  margin-bottom: 1rem;
+  overflow: auto;
+}
+
+.selection,
+.args {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ::ng-deep {
+    .dropdown {
+      margin-bottom: 1rem;
+      width: 14rem;
+    }
+  }
+}
+
+.args {
+  padding-bottom: 10rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+
+  > button {
+    margin-left: 1rem;
+  }
+}

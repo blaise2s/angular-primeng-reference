@@ -21,7 +21,7 @@ export class UploadsService {
   }
 
   getUploadsGql(): Observable<ApolloQueryResult<{ uploads: Upload[] }>> {
-    return this.apollo.watchQuery<{ uploads: Upload[] }>({
+    return this.apollo.query({
       query: gql`
         query {
           uploads {
@@ -37,7 +37,7 @@ export class UploadsService {
           }
         }
       `,
-    }).valueChanges;
+    });
   }
 
   deleteUploadsRest(uploads: Upload[]): Observable<void> {
@@ -55,7 +55,7 @@ export class UploadsService {
   deleteUploadsGql(uploads: Upload[]) {
     return this.apollo.mutate({
       mutation: gql`
-        mutation ($uploads: [DeleteUploadInput!]!) {
+        mutation ($uploads: [UploadInput!]!) {
           deleteUploads(uploads: $uploads)
         }
       `,

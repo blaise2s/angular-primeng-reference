@@ -1,4 +1,4 @@
-import { Upload } from './upload.interfaces';
+import { Upload } from '../../common/interfaces/upload.interfaces';
 
 export interface FilesState {
   loading: boolean;

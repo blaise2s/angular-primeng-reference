@@ -2399,6 +2399,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/geojson@npm:*, @types/geojson@npm:^7946.0.8":
+  version: 7946.0.8
+  resolution: "@types/geojson@npm:7946.0.8"
+  checksum: 6049a39b025cfe323d5cf87333d87c133ec963cdbd349c49295bee779827ee4b46a3041fd8bd2e7a4b02d6d1e26f3002968875928941bbed08477bfd5f6f9284
+  languageName: node
+  linkType: hard
+
 "@types/http-proxy@npm:^1.17.5":
   version: 1.17.7
   resolution: "@types/http-proxy@npm:1.17.7"
@@ -2419,6 +2426,15 @@ __metadata:
   version: 7.0.9
   resolution: "@types/json-schema@npm:7.0.9"
   checksum: 259d0e25f11a21ba5c708f7ea47196bd396e379fddb79c76f9f4f62c945879dc21657904914313ec2754e443c5018ea8372362f323f30e0792897fdb2098a705
+  languageName: node
+  linkType: hard
+
+"@types/leaflet@npm:^1.7.8":
+  version: 1.7.8
+  resolution: "@types/leaflet@npm:1.7.8"
+  dependencies:
+    "@types/geojson": "*"
+  checksum: ad30fbc9d961606c196477ac7e5351904633c72923b4cf6e1859aab0f7edb62f3fc826ccc44683f2342d7bf9a0f0916526cf0f956fed37306a099d16878da078
   languageName: node
   linkType: hard
 
@@ -3574,7 +3590,9 @@ __metadata:
     "@commitlint/cli": ^15.0.0
     "@commitlint/config-conventional": ^15.0.0
     "@types/express": ^4.17.13
+    "@types/geojson": ^7946.0.8
     "@types/jasmine": ~3.10.0
+    "@types/leaflet": ^1.7.8
     "@types/node": ^12.11.1
     "@types/react": ^17.0.37
     "@typescript-eslint/eslint-plugin": 5.3.0
@@ -3593,6 +3611,7 @@ __metadata:
     karma-coverage: ~2.0.3
     karma-jasmine: ~4.0.0
     karma-jasmine-html-reporter: ~1.7.0
+    leaflet: ^1.7.1
     lint-staged: ^12.1.2
     prettier: ^2.5.0
     prettier-eslint: ^13.0.0
@@ -7318,6 +7337,13 @@ __metadata:
   version: 0.23.0
   resolution: "known-css-properties@npm:0.23.0"
   checksum: 10d6400f6b411b731b9766be730ede298c7b28e94e2aaa882a014e5975da8028f3c7bab599358d4f53e1118ab33fc7e085c2b851167c698072bac917c372236f
+  languageName: node
+  linkType: hard
+
+"leaflet@npm:^1.7.1":
+  version: 1.7.1
+  resolution: "leaflet@npm:1.7.1"
+  checksum: f69149ab482eeb6cdabd837939c4782c97a7a18bc0b2a9330d4a828ca0dc6e035981f2ecdb71c6646aa173bc369cd3b4fd6bbe5d81df4c59c45254f9e9361d03
   languageName: node
   linkType: hard
 

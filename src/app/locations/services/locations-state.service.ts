@@ -23,11 +23,4 @@ export class LocationsStateService {
       ...state,
     });
   }
-
-  initializeState(): void {
-    this.setState({ loading: true });
-    setTimeout(() => {
-      this.setState({ loading: false });
-    }, 500);
-  }
 }
