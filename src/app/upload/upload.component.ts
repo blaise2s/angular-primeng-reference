@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'bz-areas',
-  templateUrl: './areas.component.html',
+  selector: 'bz-upload',
+  templateUrl: './upload.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AreasComponent {}
+export class UploadComponent {}

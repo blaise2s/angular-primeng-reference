@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ECommerceComponent } from './e-commerce.component';
+import { UploadComponent } from './upload.component';
 
-describe('ECommerceComponent', () => {
-  let component: ECommerceComponent;
-  let fixture: ComponentFixture<ECommerceComponent>;
+describe('UploadComponent', () => {
+  let component: UploadComponent;
+  let fixture: ComponentFixture<UploadComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ECommerceComponent],
+      declarations: [UploadComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ECommerceComponent);
+    fixture = TestBed.createComponent(UploadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

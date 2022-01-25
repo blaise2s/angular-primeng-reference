@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/common/auth/services/auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class LocationsGuard implements CanActivate, CanLoad {
+export class UploadGuard implements CanActivate, CanLoad {
   constructor(private readonly authService: AuthService) {}
 
   canActivate():
